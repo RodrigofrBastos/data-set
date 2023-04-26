@@ -27,7 +27,7 @@ data_string = data.strftime("%A %d %B %y %I:%M")
 data_datetime = dt.datetime.strptime(data_string,"%A %d %B %y %I:%M")
 
 # escrevendo a data-horario na imagem
-cv2.putText(frame,"{}".format(data_datetime),(10,30),cv2.FONT_HERSHEY_PLAIN,1,(0,255,0))
+cv2.putText(frame,"{}".format   (data_datetime),(10,30),cv2.FONT_HERSHEY_PLAIN,1,(0,255,0))
 
 # Se o arquivo já existe, adicione um número sequencial ao nome
 if os.path.exists(filename):
