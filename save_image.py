@@ -5,8 +5,19 @@ import datetime as dt
 cap = cv2.VideoCapture(0)
 
 # Read a single frame from the camera
-ret, frame = cap.read()
+while(True):
+    ret, frame = cap.read()
+
+    cv2.imshow('frame',frame)
+    if cv2.waitKey(1) & 0xFF == ord('l'):
+        filename = "leak/image.jpg"
+        break
+    elif cv2.waitKey(1) & 0xFF == ord('n'):
+        filename = 'noleak/image.jpg'
+        break
+
 cap.release()
+cv2.destroyAllWindows()
 
 #armazena o horario e data da foto retirada
 data = dt.datetime.now()
@@ -15,10 +26,6 @@ data_datetime = dt.datetime.strptime(data_string,"%A %d %B %y %I:%M")
 
 # escrevendo a data-horario na imagem
 cv2.putText(frame,"{}".format(data_datetime),(10,30),cv2.FONT_HERSHEY_PLAIN,1,(255))
-
-
-# Nome do arquivo
-filename = "img/image.jpg"
 
 # Se o arquivo já existe, adicione um número sequencial ao nome
 if os.path.exists(filename):
