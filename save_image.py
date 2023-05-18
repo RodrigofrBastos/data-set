@@ -3,7 +3,7 @@ import os
 import datetime as dt
 
 # Open the default camera
-cap = cv2.VideoCapture(2)
+cap = cv2.VideoCapture(0)
 # Read frames from the camera
 while(True):
     ret, frame = cap.read()
@@ -11,10 +11,10 @@ while(True):
     cv2.imshow('frame',frame)
 # pressione a tecla "l" para tirar uma foto do vazamento
     if cv2.waitKey(1) & 0xFF == ord('n'):
-        filename = 'noleak/no_leak.jpg'
+        filename = 'PVC-noleak/no_leak.jpg'
         break 
     elif cv2.waitKey(1) & 0xFF == ord('l'):
-        filename = "leak/leak.jpg"
+        filename = "PVC-leak/leak.jpg"
         break
 # voce deve segurar a tecla "n" por alguns instantes para salvar a imagem sem vazamento
 
